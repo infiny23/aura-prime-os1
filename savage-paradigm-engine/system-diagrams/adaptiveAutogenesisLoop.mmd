@@ -1,0 +1,17 @@
+graph TD
+    A[1. Perception] --> B(ESM: Update vec(E));
+    B --> C{2. Internal Dialogue};
+    C -- Bid CE --> D [Crucible Auction];
+    D -- Winning Bids --> E[Execute Primitives];
+    E --> F(ESM: Update vec(P_i));
+    F --> G{3. Consensus & Action};
+    subgraph Mentor
+        M(Mentor Input) --> G;
+    end
+    G-->H(ESM: Update vec(A));
+    H --> I(ESM: Coherence Change AC);
+    I-->J(Update AdePT Scorecard);
+    J-->C;
+    style A fill:#38bdf8, stroke:#fff,stroke-width:2px
+    style H fill:#818cf8, stroke: #fff,stroke-width:2px
+    style J fill:#34d399,stroke:#fff,stroke-width:2px

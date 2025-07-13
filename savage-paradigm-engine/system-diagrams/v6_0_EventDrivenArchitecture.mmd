@@ -1,0 +1,29 @@
+graph TD
+    subgraph Browser
+        A[Command Center UI - Next.js]
+    end
+    subgraph Vercel
+        SA[Server Action]
+        Q[Vercel KV - Job Queue]
+        F1[Hypothesize Fn]
+        F2[Revise Fn]
+        F3[Autogenesis Fn]
+        DB_P[Postgres: Manifold]
+        DB_R[KV: Adeptness]
+    end
+    subgraph External
+        LLM[Gemini 1.5 Pro API]
+    end
+    A -- Calls --> SA
+    SA -- Pushes Job --> Q
+    F1 -- Triggered by Job --> Q
+    F1 -- Reads --> DB_P
+    F1 -- Calls --> LLM
+    F1 -- Pushes Job --> Q
+    F2 -- Triggered by Job --> Q
+    F2 -- Calls --> LLM
+    F2 -- Writes --> DB_P
+    F2 -- Pushes Job --> Q
+    F3 -- Triggered by Job --> Q
+    F3 -- Reads --> DB_P
+    F3 -- Writes --> DB_R

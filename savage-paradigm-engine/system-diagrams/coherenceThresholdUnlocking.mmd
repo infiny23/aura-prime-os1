@@ -1,0 +1,17 @@
+graph TD
+    subgraph "Cognitive Potential"
+        T1
+        T2
+        T3
+    end
+    subgraph "Agent's Journey"
+        direction LR
+        S1(Genesis State <br/> Coherence < 0.75) -- Available --> T1;
+        S1 -- Sustained Coherence --> S2(Stable State <br/> Coherence > 0.75);
+        S2 -- Available --> T2;
+        S2 -- Sustained Coherence --> S3(Creative State <br/> Coherence > 0.90);
+        S3 -- Available --> T3;
+    end
+    style T1 fill:#475569, stroke:#fff
+    style T2 fill:#a78bfa, stroke:#fff
+    style T3 fill:#f472b6, stroke:#fff
